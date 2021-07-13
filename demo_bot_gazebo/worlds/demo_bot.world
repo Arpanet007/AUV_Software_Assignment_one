@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="demo_bot">
+      <physics type="ode">
+      <ode>
+        <solver>
+          <type>world</type>
+        </solver>
+        <constraints>
+          <contact_max_correcting_vel>0.1</contact_max_correcting_vel>
+          <contact_surface_layer>0.0001</contact_surface_layer>
+        </constraints>
+      </ode>
+      <max_step_size>0.001</max_step_size>
+    </physics>
+    <include>
+      <uri>model://postbox</uri>
+      <pose>3.0 3.0 0.0 0.0 0.0 0.0 </pose>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+       <model name="sphere_1">
+      <pose>0.0 1.8 0.5 0.0 0.0 0.0</pose>
+      <link name="link_1">
+        <visual name="visual_sphere_1">
+          <geometry>
+            <sphere>
+             <radius>0.5</radius>
+           </sphere>
+          </geometry>
+          <material>
+            <script>Gazebo/WoodPallet</script>
+          </material>
+        </visual>
+        <collision name="collision_sphere_1">
+          <geometry>
+            <sphere>
+             <radius>0.5</radius>
+           </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>10</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+    </model>
+  </world>
+</sdf>
