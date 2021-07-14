@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
   <world name="demo_bot">
+  <arg name="use_sim_time" value=0/>
       <physics type="ode">
       <ode>
         <solver>

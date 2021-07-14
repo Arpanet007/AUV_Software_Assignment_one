@@ -1,28 +1,12 @@
-<launch>
-  <arg name="x" default="0"/>
-  <arg name="y" default="0"/>
-  <arg name="z" default="0"/>
-  <arg name="roll" default="0"/>
-  <arg name="pitch" default="0"/>
-  <arg name="yaw" default="0"/>
- 
 
- <!-- Launch other relevant files-->
-  <include file="$(find demo_bot_gazebo)/launch/robot_description.launch"/>
-   <arg name="world_file" value="$(find demo_bot_gazebo)/worlds/demo_bot.world"/>
+<launch>
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-
-        <arg name="use_sim_time" value="true"/>
-    <arg name="debug" value="false"/>
-    <arg name="gui" value="true" />
-  <arg name="world_name" value="$(arg world_file)"/>
-    <!-- more default parameters can be changed here -->
+    <arg name="world_name" value="$(find demo_bot_gazebo)/worlds/demo_bot.world"/>
+ 
   </include>
-   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find demo_bot_gazebo)/URDF/demo_bot.xacro'"/>
-  <!-- Spawn My Robot -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" 
-        args="-urdf -param robot_description -model demo_bot
-              -x $(arg x) -y $(arg y) -z $(arg z)
-              -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+  <!-- <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -file `~/catkin_ws/src/demo_bot_gazebo/urdf/first.urdf -model first" />
+  <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
+    <remap from="/cmd_vel" to="/cmd_vel"/>
+  </node> -->
 </launch>
