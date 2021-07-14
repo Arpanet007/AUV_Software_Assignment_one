@@ -156,7 +156,7 @@
     <joint_properties damping="1.0" friction="1.0" />
   </joint>    
   <gazebo>
-   <!-- <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+   <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
       <alwaysOn>true</alwaysOn>
       <updateRate>20</updateRate>
       <leftJoint>joint_left_wheel</leftJoint>
@@ -168,7 +168,7 @@
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>link_chassis</robotBaseFrame>
-    </plugin>-->
+    </plugin>
   </gazebo>
   
 </robot>
